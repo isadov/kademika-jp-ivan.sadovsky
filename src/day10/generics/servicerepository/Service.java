@@ -4,6 +4,11 @@ public class Service {
 
     public int uniqueNumber;
 
+
+    public Service() {
+
+    }
+
     public Service(int uniqueNumber) {
         this.uniqueNumber = uniqueNumber;
     }
