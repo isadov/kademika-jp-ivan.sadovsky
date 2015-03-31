@@ -1,5 +1,6 @@
-package day10.magazinediscountsystem;
+package day10.magazinediscountsystemtests;
 
+import day10.magazinediscountsystem.DiscountSystem;
 import mainprojects.magazine.justconstructor.Transaction;
 import org.junit.Assert;
 import org.junit.Before;
@@ -9,7 +10,7 @@ import org.junit.runners.JUnit4;
 
 @RunWith(JUnit4.class)
 
-public class DiscountSystemTests extends Assert {
+public class NewDiscountSystemTest extends Assert {
 
     DiscountSystem ds;
 
@@ -165,7 +166,7 @@ public class DiscountSystemTests extends Assert {
         ds.addItem(ts1);
         ds.addItem(ts2);
 
-        assertEquals(6, ds.getTotalSum(),0.0001);
+        assertEquals(6, ds.getTotalSum(), 0.0001);
 
     }
 
@@ -187,7 +188,7 @@ public class DiscountSystemTests extends Assert {
         ds.addItem(ts1);
         ds.addItem(ts2);
 
-        assertEquals(71.25, ds.getTotalSum(),0.0001);
+        assertEquals(71.25, ds.getTotalSum(), 0.0001);
 
     }
 
@@ -209,7 +210,7 @@ public class DiscountSystemTests extends Assert {
         ds.addItem(ts1);
         ds.addItem(ts2);
 
-        assertEquals(9045, ds.getTotalSum(),0.0001);
+        assertEquals(9045, ds.getTotalSum(), 0.0001);
 
     }
 
@@ -225,5 +226,6 @@ public class DiscountSystemTests extends Assert {
 
         assertEquals(3, ds.getSizeOfContainer());
     }
+
 
 }
