@@ -2,7 +2,7 @@ package day10.magazinediscountsystemtests;
 
 import day10.magazinediscountsystem.DiscountSystem;
 import mainprojects.magazine.justconstructor.Transaction;
-import org.junit.Assert;
+import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,36 +10,40 @@ import org.junit.runners.JUnit4;
 
 @RunWith(JUnit4.class)
 
-public class NewDiscountSystemTest extends Assert {
+// написать сортировку ДЗ. Не делать
+// Вывести иерархию... ДЗ. Не делать НО если интересно...
 
-    DiscountSystem ds;
+
+public class NewDiscountSystemTest  {
+
+    DiscountSystem discountSystem;
 
     @Before
     public void init() {
-        ds = new DiscountSystem();
+        discountSystem = new DiscountSystem();
     }
 
     @Test
     public void checkDiscountSystemNotNull() {
-        assertNotNull("Not Created New ds", ds);
+        assertNotNull("Not Created New ds", discountSystem);
     }
 
     @Test
     public void checkAddItem() {
         Transaction ts = new Transaction();
-        ds.addItem(ts);
+        discountSystem.addItem(ts);
 
-        assertEquals(ts, ds.getItemByIndex(0));
+        assertEquals(ts, discountSystem.getItemByIndex(0));
     }
 
     @Test
     public void checkRemoveItem() {
         Transaction ts = new Transaction();
 
-        ds.addItem(ts);
-        ds.removeItem();
+        discountSystem.addItem(ts);
+        discountSystem.removeItem();
 
-        assertNull(null, ds.getItemByIndex(0));
+        assertNull(discountSystem.getItemByIndex(0));
     }
 
     @Test
@@ -48,18 +52,21 @@ public class NewDiscountSystemTest extends Assert {
         Transaction ts1 = new Transaction();
         Transaction ts2 = new Transaction();
 
-        ds.addItem(ts);
-        ds.addItem(ts1);
-        ds.addItem(ts2);
+        discountSystem.addItem(ts);
+        discountSystem.addItem(ts1);
+        discountSystem.addItem(ts2);
 
-        ds.removeAllItem();
+        discountSystem.removeAllItem();
 
-        assertNotNull(null, ds.getItemByIndex(0));
+        System.out.println("Test !" + discountSystem.getItemByIndex(0));
+
+        assertNull("Should Be Null", discountSystem.getItemByIndex(0));
     }
 
     @Test
     public void checkGetItemByIndex() {
-        assertNull(null, ds.getItemByIndex(0));
+
+        assertNull(discountSystem.getItemByIndex(0));
     }
 
     @Test
@@ -76,11 +83,11 @@ public class NewDiscountSystemTest extends Assert {
         ts2.setQuantity(5);
         ts2.setPrice(5);
 
-        ds.addItem(ts);
-        ds.addItem(ts1);
-        ds.addItem(ts2);
+        discountSystem.addItem(ts);
+        discountSystem.addItem(ts1);
+        discountSystem.addItem(ts2);
 
-        assertEquals(75, ds.getSum(), 0.0001);
+        assertEquals(75, discountSystem.getSum(), 0);//
     }
 
     @Test
@@ -97,11 +104,11 @@ public class NewDiscountSystemTest extends Assert {
         ts2.setQuantity(1);
         ts2.setPrice(2);
 
-        ds.addItem(ts);
-        ds.addItem(ts1);
-        ds.addItem(ts2);
+        discountSystem.addItem(ts);
+        discountSystem.addItem(ts1);
+        discountSystem.addItem(ts2);
 
-        assertEquals(0, ds.getDiscount());
+        assertEquals(0, discountSystem.getDiscount());
     }
 
     @Test
@@ -118,11 +125,11 @@ public class NewDiscountSystemTest extends Assert {
         ts2.setQuantity(5);
         ts2.setPrice(5);
 
-        ds.addItem(ts);
-        ds.addItem(ts1);
-        ds.addItem(ts2);
+        discountSystem.addItem(ts);
+        discountSystem.addItem(ts1);
+        discountSystem.addItem(ts2);
 
-        assertEquals(5, ds.getDiscount());
+        assertEquals(5, discountSystem.getDiscount());
 
     }
 
@@ -140,11 +147,11 @@ public class NewDiscountSystemTest extends Assert {
         ts2.setQuantity(100);
         ts2.setPrice(100);
 
-        ds.addItem(ts);
-        ds.addItem(ts1);
-        ds.addItem(ts2);
+        discountSystem.addItem(ts);
+        discountSystem.addItem(ts1);
+        discountSystem.addItem(ts2);
 
-        assertEquals(10, ds.getDiscount());
+        assertEquals(10, discountSystem.getDiscount());
 
     }
 
@@ -162,11 +169,11 @@ public class NewDiscountSystemTest extends Assert {
         ts2.setQuantity(2);
         ts2.setPrice(1);
 
-        ds.addItem(ts);
-        ds.addItem(ts1);
-        ds.addItem(ts2);
+        discountSystem.addItem(ts);
+        discountSystem.addItem(ts1);
+        discountSystem.addItem(ts2);
 
-        assertEquals(6, ds.getTotalSum(), 0.0001);
+        assertEquals(6, discountSystem.getTotalSum(), 0.0001);
 
     }
 
@@ -184,11 +191,11 @@ public class NewDiscountSystemTest extends Assert {
         ts2.setQuantity(5);
         ts2.setPrice(5);
 
-        ds.addItem(ts);
-        ds.addItem(ts1);
-        ds.addItem(ts2);
+        discountSystem.addItem(ts);
+        discountSystem.addItem(ts1);
+        discountSystem.addItem(ts2);
 
-        assertEquals(71.25, ds.getTotalSum(), 0.0001);
+        assertEquals(71.25, discountSystem.getTotalSum(), 0.0001);
 
     }
 
@@ -206,11 +213,11 @@ public class NewDiscountSystemTest extends Assert {
         ts2.setQuantity(100);
         ts2.setPrice(100);
 
-        ds.addItem(ts);
-        ds.addItem(ts1);
-        ds.addItem(ts2);
+        discountSystem.addItem(ts);
+        discountSystem.addItem(ts1);
+        discountSystem.addItem(ts2);
 
-        assertEquals(9045, ds.getTotalSum(), 0.0001);
+        assertEquals(9045, discountSystem.getTotalSum(), 0.0001);
 
     }
 
@@ -220,11 +227,11 @@ public class NewDiscountSystemTest extends Assert {
         Transaction ts1 = new Transaction();
         Transaction ts2 = new Transaction();
 
-        ds.addItem(ts);
-        ds.addItem(ts1);
-        ds.addItem(ts2);
+        discountSystem.addItem(ts);
+        discountSystem.addItem(ts1);
+        discountSystem.addItem(ts2);
 
-        assertEquals(3, ds.getSizeOfContainer());
+        assertEquals(3, discountSystem.getSizeOfContainer());
     }
 
 

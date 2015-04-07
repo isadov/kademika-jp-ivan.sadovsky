@@ -7,7 +7,7 @@ import java.util.List;
 
 public class DiscountSystem {
 
-    private List<Transaction> container;
+    private List<Transaction> container; // try generics
 
     public DiscountSystem() {
         this.container = new ArrayList<>();
@@ -17,17 +17,16 @@ public class DiscountSystem {
         container.add(item);
     }
 
-    public void removeItem() {
+    public void removeItem() { // remove last transaction
         if (!container.isEmpty()) {
             container.remove(container.size() - 1);
         }
     }
 
     public void removeAllItem() {
-        if (!container.isEmpty()) {
-            container.remove(container);
+            container.clear();
         }
-    }
+
 
     public Transaction getItemByIndex(int index) {
         if (!container.isEmpty()) {
@@ -60,6 +59,7 @@ public class DiscountSystem {
             }
 
         }
+
 
     }
 
