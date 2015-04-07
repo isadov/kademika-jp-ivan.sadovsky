@@ -1,11 +1,11 @@
-package day10.reflaction;
+package day10.reflection;
 
 import day10.domainmodel.Fruits.Apple;
 import day10.domainmodel.Fruits.Fruit;
 
 import java.util.Arrays;
 
-public class ReflactionDemo {
+public class ReflectionDemo {
 
     public static void main(String[] args) {
 

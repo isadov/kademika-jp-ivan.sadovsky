@@ -1,4 +1,4 @@
-package day10.reflaction.example;
+package day10.reflection.example;
 
 public class ClassTester {
 
