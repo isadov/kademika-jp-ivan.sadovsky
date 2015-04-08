@@ -2,11 +2,12 @@ package day10.magazinediscountsystemtests;
 
 import day10.magazinediscountsystem.DiscountSystem;
 import mainprojects.magazine.justconstructor.Transaction;
-import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
+
+import static org.junit.Assert.*;
 
 @RunWith(JUnit4.class)
 
@@ -14,7 +15,7 @@ import org.junit.runners.JUnit4;
 // Вывести иерархию... ДЗ. Не делать НО если интересно...
 
 
-public class NewDiscountSystemTest  {
+public class DiscountSystemTest {
 
     DiscountSystem discountSystem;
 
