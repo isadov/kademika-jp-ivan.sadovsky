@@ -8,6 +8,6 @@ public class Water extends BFObject{
 
 	 public Water(){
 		 this.color = new Color(65,105,225);
-		image = LoadingImages.getWater();
+		 image = LoadingImages.getWater();
 	 }
 }

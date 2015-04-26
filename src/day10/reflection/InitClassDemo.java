@@ -10,7 +10,7 @@ public class InitClassDemo {
         TestClass testClass;
 
         Map<String, Object> map = new HashMap<>();
-        map.put("name", new String("Jackie")); // if name write like a Name(!) NoSuchFieldException
+        map.put("name", new String("Jackie"));  // if name write like a Name(!) NoSuchFieldException
         map.put("age", new Integer(25));        // same to line 13
         map.put("id", new Long(123));           // same to line 13
         map.put("price", new Integer(100));     // same to line 13
@@ -25,6 +25,7 @@ public class InitClassDemo {
     }
 
     public static class TestClass {
+
         public String name;
         public int age;
         public long id;

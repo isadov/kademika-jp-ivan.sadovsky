@@ -15,13 +15,13 @@ public class AppleTests {
 
     private Apple apple;
 
-    @Before // method init would be start before all Tests !! (3 methods = 3 times) !
+    @Before
     public void init() {
         apple = new Apple();
     }
 
     @Test
     public void checkAppleDefaultColor() {
-        assertNull("Default color. Should be null", apple.getColor());
+        assertNull("Default color Should be null", apple.getColor());
     }
 }

@@ -17,7 +17,6 @@ public class Rock extends BFObject implements Destroyable{
 	@Override
 	public void destroy() throws Exception {
 		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
