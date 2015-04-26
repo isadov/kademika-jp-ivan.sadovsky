@@ -52,6 +52,7 @@ public class ApplicationManager {
     public void printServiceList() {
         for (Object o : objectList) {
             System.out.print(o.getClass().getSimpleName() + ": ");
+
             TestClass testClass = (TestClass) o;
             System.out.println(testClass.getStatus() + " !");
 

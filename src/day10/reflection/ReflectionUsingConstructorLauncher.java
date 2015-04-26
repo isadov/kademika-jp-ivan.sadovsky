@@ -56,7 +56,7 @@ public class ReflectionUsingConstructorLauncher {
         public TestClass(Integer age, Integer id, String name, Integer price) {
             this.age = age;
             this.id = id;
-            this.name = name + " -- TestWithFullConstructor ";
+            this.name = name;
             this.price = price;
         }
 
