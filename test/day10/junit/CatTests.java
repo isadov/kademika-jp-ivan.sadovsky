@@ -7,6 +7,7 @@ import org.junit.runners.JUnit4;
 
 import static org.junit.Assert.*;
 
+
 @RunWith(JUnit4.class)
 
 public class CatTests {
@@ -16,6 +17,11 @@ public class CatTests {
     @Before // method init would be start before all Tests !! (3 methods = 3 times) !
     public void init() {
         cat = new Cat();
+    }
+
+    @Test
+    public void create() {
+
     }
 
     @Test
