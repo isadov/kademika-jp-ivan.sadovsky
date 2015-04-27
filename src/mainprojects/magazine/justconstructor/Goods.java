@@ -3,6 +3,7 @@ package mainprojects.magazine.justconstructor;
 public class Goods {
 	protected String name;
 	protected int price;
+	protected long id;
 
 	public Goods() {
 	}
@@ -23,4 +24,11 @@ public class Goods {
 		this.price = price;
 	}
 
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
 }

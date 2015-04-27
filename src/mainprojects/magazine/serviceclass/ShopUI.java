@@ -138,7 +138,6 @@ public class ShopUI {
 
 		JLabel label1 = new JLabel("You can choose product HERE !");
 		label1.setFont(new Font("Arial", Font.PLAIN, 11));
-
 		panel.add(label1,
 				new GridBagConstraints(0, 2, 3, 1, 0, 0,
 						GridBagConstraints.LINE_START, 0, new Insets(0, 0, 10,
@@ -174,7 +173,7 @@ public class ShopUI {
 				}
 				if (!jtf1.getText().isEmpty()) {
 				} else {
-					System.err.println("Please choose product");
+					System.err.println("Please Input quantity");
 					return;
 				}
 				int indexOfRButton = 0;
@@ -186,12 +185,11 @@ public class ShopUI {
 					}
 				}
 				if (indexOfRButton >= arrayRButton.size()) {
-					System.out.println("Choose product !");
+					System.err.println("Please Choose product !");
 					return;
 				}
 
-				productshop.buy(customer, indexOfRButton,
-						Integer.parseInt(jtf1.getText()));
+				productshop.buy(customer, indexOfRButton, Integer.parseInt(jtf1.getText()));
 
 				radioPanel.removeAll();
 				attributePanel.removeAll();
@@ -206,6 +204,7 @@ public class ShopUI {
 						.getNumberTypesOnStock() + 1, 1, 1, 9));
 				quantPanel = new JPanel(new GridLayout(stock
 						.getNumberTypesOnStock() + 1, 1, 1, 9));
+
 				labelColumn1 = new JLabel("Name Of Product");
 				labelColumn1.setFont(new Font("Arial", Font.BOLD, 14));
 				radioPanel.add(labelColumn1);
@@ -269,25 +268,4 @@ public class ShopUI {
 		return panel;
 	}
 
-	private JPanel createTablePanel() {
-		pTable = new JPanel();
-
-		SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yy HH:mm:ss");
-		String[] columnNames = { "ID", "Date", "Product", "Count", "Customer" };
-		List<Transaction> transactions = productshop.transactionInfo();
-		Object[][] data = new Object[transactions.size()][];
-		for (int i = 0; i < transactions.size(); i++) {
-			Transaction t = transactions.get(i);
-			Object[] co = new Object[] { t.getId(),
-					sdf.format(t.getCurrentDate()), t.getElementName(),
-					t.getPrice(), t.getClient() };
-			data[i] = co;
-		}
-
-		tTransaction = new JTable(data, columnNames);
-		tTransaction.getColumnModel().getColumn(1).setPreferredWidth(120);
-
-		JScrollPane sp = new JScrollPane(tTransaction);
-		return pTable;
-	}
 }

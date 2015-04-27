@@ -7,16 +7,17 @@ public class Product extends Goods {
 	TypeOfProducts type;
 	String brand;
 
+
 	public Product() {
 	}
 
-	public Product(String name, TypeOfProducts type, String brand, int price) {
+	public Product(String name, TypeOfProducts type, String brand, int price, int id) {
 
 		this.name = name;
 		this.type = type;
 		this.brand = brand;
 		this.price = price;
-
+		this.id = id;
 	}
 
 	public String getName() {
@@ -42,6 +43,7 @@ public class Product extends Goods {
 	public void setBrand(String brand) {
 		this.brand = brand;
 	}
+
 
 	@Override
 	public boolean equals(Object obj) {
