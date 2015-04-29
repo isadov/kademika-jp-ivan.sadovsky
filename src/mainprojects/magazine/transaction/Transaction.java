@@ -1,4 +1,4 @@
-package mainprojects.magazine.justconstructor;
+package mainprojects.magazine.transaction;
 
 public class Transaction {
 	private String currentDate;

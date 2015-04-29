@@ -1,7 +1,7 @@
 package day10.magazinediscountsystemtests;
 
 import day10.magazinediscountsystem.DiscountSystem;
-import mainprojects.magazine.justconstructor.Transaction;
+import mainprojects.magazine.transaction.Transaction;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

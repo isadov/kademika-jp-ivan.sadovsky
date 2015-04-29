@@ -1,11 +1,10 @@
-package mainprojects.magazine.serviceclass.mainclass;
+package mainprojects.magazine.service;
+
+import mainprojects.magazine.products.Product;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-
-import mainprojects.magazine.justconstructor.Goods;
-import mainprojects.magazine.justconstructor.Product;
 
 public class Stock {
 	private List<LinkedList<Goods>> arrayOfList;

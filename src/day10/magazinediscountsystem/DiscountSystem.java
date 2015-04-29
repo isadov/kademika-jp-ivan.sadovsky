@@ -1,6 +1,6 @@
 package day10.magazinediscountsystem;
 
-import mainprojects.magazine.justconstructor.Transaction;
+import mainprojects.magazine.transaction.Transaction;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package mainprojects.magazine.serviceclass;
+package mainprojects.magazine.products;
 
 public enum TypeOfProducts {
 	

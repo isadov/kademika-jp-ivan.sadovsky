@@ -1,4 +1,4 @@
-package mainprojects.magazine.serviceclass;
+package mainprojects.magazine.service;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;

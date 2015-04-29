@@ -1,4 +1,4 @@
-package mainprojects.magazine.justconstructor;
+package mainprojects.magazine.customer;
 
 public class Customer {
 

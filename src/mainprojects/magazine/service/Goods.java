@@ -1,4 +1,4 @@
-package mainprojects.magazine.justconstructor;
+package mainprojects.magazine.service;
 
 public class Goods {
 	protected String name;

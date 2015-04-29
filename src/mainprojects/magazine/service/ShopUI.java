@@ -1,32 +1,13 @@
-package mainprojects.magazine.serviceclass;
+package mainprojects.magazine.service;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.GridLayout;
-import java.awt.Insets;
+import mainprojects.magazine.customer.Customer;
+
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.swing.BorderFactory;
-import javax.swing.ButtonGroup;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JRadioButton;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.JTextField;
-
-import mainprojects.magazine.justconstructor.Customer;
-import mainprojects.magazine.justconstructor.Transaction;
-import mainprojects.magazine.serviceclass.mainclass.Stock;
 
 public class ShopUI {
 	Shop shop;
@@ -67,7 +48,7 @@ public class ShopUI {
 		jframe.add(mainPanel);
 		jframe.pack();
 		jframe.setLocationRelativeTo(null);
-		jframe.setAlwaysOnTop(true);
+		jframe.setAlwaysOnTop(false);
 		jframe.setVisible(true);
 	}
 
@@ -165,15 +146,17 @@ public class ShopUI {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+
 				if (!jtf.getText().isEmpty()) {
 					customer = new Customer(jtf.getText());
 				} else {
-					System.err.println("Empty name");
+					JOptionPane.showMessageDialog(null, "Empty Name Of Customer", "Warning", JOptionPane.WARNING_MESSAGE);
 					return;
 				}
+
 				if (!jtf1.getText().isEmpty()) {
 				} else {
-					System.err.println("Please Input quantity");
+					JOptionPane.showMessageDialog(null, "Empty Quantity Of Product", "Warning", JOptionPane.WARNING_MESSAGE);
 					return;
 				}
 				int indexOfRButton = 0;

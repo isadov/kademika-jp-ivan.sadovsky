@@ -1,6 +1,5 @@
 package mainprojects.magazine2.service;
 
-
 import mainprojects.magazine2.products.CountryManufacturer;
 
 import mainprojects.magazine2.products.Product;

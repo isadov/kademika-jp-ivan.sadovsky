@@ -1,10 +1,10 @@
 package mainprojects.magazine2.products;
 
-public abstract class Product {
+public class Product {
 
     private String name;
     private ProductType type;
-    private int size;
+    private int weight;
     private double price;
     private boolean isFresh;
     private CountryManufacturer countryManufacturer;
@@ -13,9 +13,9 @@ public abstract class Product {
 
     }
 
-    public Product(ProductType type, int size, double price, boolean isFresh, CountryManufacturer countryManufacturer) {
+    public Product(String name, ProductType type, int weight, double price, boolean isFresh, CountryManufacturer countryManufacturer) {
         this.type = type;
-        this.size = size;
+        this.weight = weight;
         this.price = price;
         this.isFresh = isFresh;
         this.countryManufacturer = countryManufacturer;
@@ -23,8 +23,8 @@ public abstract class Product {
     }
 
 
-    public int getSize() {
-        return size;
+    public int getWeight() {
+        return weight;
     }
 
     public double getPrice() {
@@ -35,8 +35,8 @@ public abstract class Product {
         return isFresh;
     }
 
-    public void setSize(int size) {
-        this.size = size;
+    public void setWeight(int weight) {
+        this.weight = weight;
     }
 
     public void setPrice(double price) {
@@ -77,7 +77,7 @@ public abstract class Product {
         if (comparedProduct instanceof Product) {
             Product product = (Product) comparedProduct;
             if (this.type.equals(product.getType()) &&
-                    this.size == product.getSize() &&
+                    this.weight == product.getWeight() &&
                     this.price == product.getPrice() &&
                     this.isFresh == product.isFresh() &&
                     this.name.equals(product.getName()) &&

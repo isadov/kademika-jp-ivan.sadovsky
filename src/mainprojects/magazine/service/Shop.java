@@ -1,11 +1,10 @@
-package mainprojects.magazine.serviceclass;
+package mainprojects.magazine.service;
+
+import mainprojects.magazine.customer.Customer;
+import mainprojects.magazine.transaction.Transaction;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import mainprojects.magazine.justconstructor.Customer;
-import mainprojects.magazine.justconstructor.Transaction;
-import mainprojects.magazine.serviceclass.mainclass.Stock;
 
 public class Shop {
 

@@ -1,6 +1,6 @@
-package mainprojects.magazine.justconstructor;
+package mainprojects.magazine.products;
 
-import mainprojects.magazine.serviceclass.TypeOfProducts;
+import mainprojects.magazine.service.Goods;
 
 public class Product extends Goods {
 
