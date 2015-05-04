@@ -3,7 +3,7 @@ package mainprojects.magazine.products;
 public class Goods {
 	protected String name;
 	protected int price;
-	protected long id;
+	protected int id;
 
 	public Goods() {
 	}
@@ -28,7 +28,7 @@ public class Goods {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 }

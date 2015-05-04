@@ -42,7 +42,6 @@ public class DataBase {
         countryManufacturerMap.get(p.getCountryManufacturer().toString()).add(p);
         productTypeMap.get(p.getType().toString()).sort(productComparator);
         countryManufacturerMap.get(p.getCountryManufacturer().toString()).sort(productComparator);
-
     }
 
     public void removeProductFromDb(Product p) {
@@ -50,7 +49,6 @@ public class DataBase {
         countryManufacturerMap.get(p.getCountryManufacturer().toString()).remove(p);
         productTypeMap.get(p.getType().toString()).sort(productComparator);
         countryManufacturerMap.get(p.getCountryManufacturer().toString()).sort(productComparator);
-
     }
 
     public int getNumberOfProductFruit() {

@@ -3,7 +3,6 @@ package mainprojects.magazine2.purchase;
 import mainprojects.magazine2.customer.Customer;
 import mainprojects.magazine2.products.Product;
 
-
 import java.util.Calendar;
 
 public class Purchase {

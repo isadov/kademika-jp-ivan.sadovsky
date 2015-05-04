@@ -1,7 +1,12 @@
-package mainprojects.magazine.service;
+package mainprojects.magazine;
+
 
 import mainprojects.magazine.products.Product;
 import mainprojects.magazine.products.TypeOfProducts;
+import mainprojects.magazine.service.Date;
+import mainprojects.magazine.service.Shop;
+import mainprojects.magazine.service.ShopUI;
+import mainprojects.magazine.service.Stock;
 
 public class DemoShop {
 
@@ -21,7 +26,6 @@ public class DemoShop {
 		Date date = new Date();
 		Stock stock = new Stock();
 		Shop productshop = new Shop(date, stock);
-
 
 		Product p = new Product();
 		p.setName("Apple");
