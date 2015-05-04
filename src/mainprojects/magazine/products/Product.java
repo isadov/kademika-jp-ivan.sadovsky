@@ -1,7 +1,5 @@
 package mainprojects.magazine.products;
 
-import mainprojects.magazine.service.Goods;
-
 public class Product extends Goods {
 
 	TypeOfProducts type;

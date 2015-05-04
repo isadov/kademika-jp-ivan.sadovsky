@@ -1,4 +1,4 @@
-package mainprojects.magazine.service;
+package mainprojects.magazine.products;
 
 public class Goods {
 	protected String name;

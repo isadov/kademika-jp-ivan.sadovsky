@@ -5,7 +5,7 @@ public class Customer {
 	private String name;
 	
 	public Customer() {
-		
+		name = "Default Customer";
 	}
 
 	public Customer(String name) {

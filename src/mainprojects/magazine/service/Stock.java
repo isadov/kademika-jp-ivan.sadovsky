@@ -1,5 +1,6 @@
 package mainprojects.magazine.service;
 
+import mainprojects.magazine.products.Goods;
 import mainprojects.magazine.products.Product;
 
 import java.util.ArrayList;
