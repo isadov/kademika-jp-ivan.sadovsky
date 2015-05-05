@@ -11,7 +11,6 @@ public class Stock<T extends Goods> {
 
 	private List<LinkedList<Goods>> arrayOfList;
 
-
 //попробовать Map. Попробовать связать по ид. Поле ид в типах. 
 	
 	public Stock() {

@@ -1,9 +1,9 @@
 package mainprojects.magazine.products;
 
-public class Goods {
+public class Goods<T> {
 	protected String name;
-	protected int price;
-	protected int id;
+	protected T price;
+	protected T id;
 
 	public Goods() {
 	}
@@ -16,19 +16,19 @@ public class Goods {
 		this.name = name;
 	}
 
-	public int getPrice() {
+	public T getPrice() {
 		return price;
 	}
 
-	public void setPrice(int price) {
+	public void setPrice(T price) {
 		this.price = price;
 	}
 
-	public long getId() {
+	public T getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(T id) {
 		this.id = id;
 	}
 }
