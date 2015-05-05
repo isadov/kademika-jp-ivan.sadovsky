@@ -29,7 +29,7 @@ public class Shop {
 			System.out.println(register.get(register.size() - 1).toString());
 			System.out.println();
 		} else {
-			System.out.println("Not enough goods on storage");
+			System.err.println("Not enough goods on storage");
 		}
 		transactionInfo();
 	}

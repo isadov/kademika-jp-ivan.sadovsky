@@ -168,6 +168,7 @@ public class ShopUI {
 					}
 				}
 				if (indexOfRButton >= arrayRButton.size()) {
+					JOptionPane.showMessageDialog(null, "You Should Choose Some Product", "Warning", JOptionPane.WARNING_MESSAGE);
 					System.err.println("Please Choose product !");
 					return;
 				}

@@ -7,20 +7,22 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Stock {
+public class Stock<T extends Goods> {
+
 	private List<LinkedList<Goods>> arrayOfList;
-	
+
+
 //попробовать Map. Попробовать связать по ид. Поле ид в типах. 
 	
 	public Stock() {
-		arrayOfList = new ArrayList<LinkedList<Goods>>();
+		arrayOfList = new ArrayList<>(); //arrayOfList = new ArrayList<LinkedList<>>();
 	}
 
-	public void add(Goods g) {
+	public void add(T g) {
 		if (arrayOfList.isEmpty()) {
-			arrayOfList.add(new LinkedList<Goods>());
+			arrayOfList.add(new LinkedList<>());
 			arrayOfList.get(0).push(g); //esli massiv pust lozim na mesto pervoho elementa nash tovar predvaritel'no sozdav novui LinkedList
-			// ispolsoval ety realisacyu potomu chto LinkedList pozvoliaet ispolzovat' push(g) kak standartnui metod kotorui tam yge realizovan
+
 			
 		} else {
 			for (int i = 0; i < arrayOfList.size(); i++) {
@@ -30,14 +32,14 @@ public class Stock {
 				}
 			}
 
-			arrayOfList.add(new LinkedList<Goods>()); // pozvoliaet dobavit' ne tolko poslednii product no i vse do neho
+			arrayOfList.add(new LinkedList<>()); // pozvoliaet dobavit' ne tolko poslednii product no i vse do neho
 			arrayOfList.get(arrayOfList.size() - 1).push(g);
 			
 			// eti dve zapisi reguliruut nashe dobavlenie productov pytem polychenia razmera massiva i sozdania novoho LinkedList
 		}
 	}
 
-	public void addMoreThanOne(Goods g, int quantity) {
+	public void addMoreThanOne(T g, int quantity) {
 		for (int i = 0; i < quantity; i++) {
 			add(g);
 		}
@@ -54,7 +56,7 @@ public class Stock {
 	public String getAttribute(int index) {
 		String result = null;
 		if (arrayOfList.get(index).get(0) instanceof Product) {
-			result = ((Product) arrayOfList.get(index).get(0)).getBrand();
+			result = ((Product) arrayOfList.get(index).get(0)).getBrand().toString();
 		}
 
 		return result;
@@ -65,7 +67,7 @@ public class Stock {
 	}
 
 	public int getPrice(int index) {
-		return arrayOfList.get(index).get(0).getPrice();
+		return (int) arrayOfList.get(index).get(0).getPrice();
 	}
 
 	public boolean remove(int index, int quantity) {

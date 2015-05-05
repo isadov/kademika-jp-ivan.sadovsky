@@ -1,15 +1,14 @@
 package mainprojects.magazine.products;
 
-public class Product extends Goods {
+public class Product<T> extends Goods {
 
-	TypeOfProducts type;
-	String brand;
-
+	private TypeOfProducts type;
+	private T brand;
 
 	public Product() {
 	}
 
-	public Product(String name, TypeOfProducts type, String brand, int price, int id) {
+	public Product(String name, TypeOfProducts type, T brand, T price, T id) {
 
 		this.name = name;
 		this.type = type;
@@ -34,11 +33,11 @@ public class Product extends Goods {
 		this.type = type;
 	}
 
-	public String getBrand() {
+	public T getBrand() {
 		return brand;
 	}
 
-	public void setBrand(String brand) {
+	public void setBrand(T brand) {
 		this.brand = brand;
 	}
 
