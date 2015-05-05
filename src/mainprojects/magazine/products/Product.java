@@ -42,7 +42,6 @@ public class Product<T> extends Goods {
 	}
 
 
-
 	@Override
 	public boolean equals(Object obj) {
 		if (obj instanceof Product) {

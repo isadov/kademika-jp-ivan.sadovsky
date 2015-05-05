@@ -3,6 +3,7 @@ package mainprojects.magazine.service;
 import mainprojects.magazine.customer.Customer;
 import mainprojects.magazine.transaction.Transaction;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,6 +13,8 @@ public class Shop {
 	Customer customer;
 	Date dateRef;
 	Stock stock;
+	private Shop shop;
+
 
 	public Shop(Date dateRef, Stock stock) {
 		this.stock = stock;
@@ -29,7 +32,7 @@ public class Shop {
 			System.out.println(register.get(register.size() - 1).toString());
 			System.out.println();
 		} else {
-			System.err.println("Not enough goods on storage");
+			JOptionPane.showMessageDialog(null, "Not Enought Goods On Storage", "Warning", JOptionPane.WARNING_MESSAGE);
 		}
 		transactionInfo();
 	}
@@ -54,6 +57,29 @@ public class Shop {
 
 	public void setCurrentData(String currentData) {
 		this.dateRef.currentData = currentData;
+	}
+
+	public Shop getShop() {
+		return shop;
+	}
+
+	public List<Transaction> getRegister() {
+		return register;
+	}
+
+
+	public Customer getCustomer() {
+		return customer;
+	}
+
+
+	public Date getDateRef() {
+		return dateRef;
+	}
+
+
+	public Stock getStock() {
+		return stock;
 	}
 
 }

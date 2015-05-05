@@ -1,5 +1,7 @@
 package mainprojects.magazine.transaction;
 
+import mainprojects.magazine.products.TypeOfProducts;
+
 public class Transaction {
 	private String currentDate;
 	private String client;
@@ -7,6 +9,7 @@ public class Transaction {
 	private int price;
 	private int quantity;
 	private int id;
+	private TypeOfProducts type;
 	
 	public Transaction() {
 		
@@ -63,6 +66,18 @@ public class Transaction {
 	
 	public int getId() {
 		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public TypeOfProducts getType() {
+		return type;
+	}
+
+	public void setType(TypeOfProducts type) {
+		this.type = type;
 	}
 
 	@Override
