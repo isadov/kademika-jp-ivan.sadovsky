@@ -33,8 +33,9 @@ public class DemoShop {
 		p.setType(TypeOfProducts.FRUIT);
 		p.setPrice(3);
 		p.setId(1);
-//		stock.addMoreThanOne(p, 300);
+		stock.addMoreThanOne(p, 300);
 		stock.addMap(p);
+
 
 //		Product p1 = new Product();
 //		p1.setName("Pear");
@@ -42,7 +43,6 @@ public class DemoShop {
 //		p1.setType(TypeOfProducts.FRUIT);
 //		p1.setPrice(5);
 //		stock.addMap(p1);
-
 
 //		Product p2 = new Product();
 //		p2.setName("Mandarin");
@@ -52,7 +52,6 @@ public class DemoShop {
 //		stock.addMoreThanOne(p2, 400);
 
 		ShopUI ui = new ShopUI(productshop, stock);
-
 
 	}
 

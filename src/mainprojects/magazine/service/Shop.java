@@ -53,6 +53,7 @@ public class Shop {
         transactionInfo();
     }
 
+
     public List<Transaction> transactionInfo() {
         int i = 0;
         for (Transaction temp : register) {

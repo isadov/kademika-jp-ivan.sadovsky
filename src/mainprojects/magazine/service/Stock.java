@@ -7,27 +7,34 @@ import java.util.*;
 
 public class Stock<T extends Goods> {
 
-    private Product product;
     private List<LinkedList<Goods>> arrayOfList;
-    private Map<String, Product> productNameMap;
+    private Map<String, List<Goods>> goodsNameMap;
 
 //попробовать Map. Попробовать связать по ид. Поле ид в типах. 
 
     public Stock() {
         arrayOfList = new ArrayList<>(); //arrayOfList = new ArrayList<LinkedList<>>();
-        productNameMap = new HashMap<>();
+        goodsNameMap = new HashMap<>();
 
     }
 
-    public void addMap(T p) {
-        if (productNameMap.isEmpty()) {
-            productNameMap.put(p.getName(), (Product) p);
-        } else {
-            productNameMap.putIfAbsent(p.getName(), (Product) p);
-            return;
-        }
-    }
+    public void addMap(T g) {
+		if(!goodsNameMap.containsKey(g.getName())) {
+			goodsNameMap.put(g.getName(), new LinkedList<>());
+		}
+		goodsNameMap.get(g.getName()).add(g);
+	}
 
+//        if (goodsNameMap.isEmpty()) {
+//
+//            goodsNameMap.put(g.getName(), );
+//        } else {
+//            for (int i = 0; i < goodsNameMap.size(); i++) {
+//					goodsNameMap.put(g.getName(), g);
+//					return;
+//				}
+//			}
+//      }
 
     public void add(T g) {
         if (arrayOfList.isEmpty()) {
@@ -49,7 +56,7 @@ public class Stock<T extends Goods> {
     }
 
     public int getNumberTypesOnStockMap() {
-        return productNameMap.size();
+        return goodsNameMap.size();
     }
 
     public int getNumberTypesOnStock() {
@@ -57,7 +64,11 @@ public class Stock<T extends Goods> {
     }
 
     public String getNameMap(int index) {
-
+        String name = null;
+        for (List<Goods> goods : goodsNameMap.values()) {
+            name = goods.get(index).getName();
+        }
+        return name;
     }
 
     public String getName(int index) {
@@ -66,8 +77,8 @@ public class Stock<T extends Goods> {
 
     public String getAttributeMap(int index) {
         String result = null;
-        if (productNameMap.get(index) instanceof Product) {
-            result = productNameMap.get(index).getBrand().toString();
+        for(List<Goods> goods : goodsNameMap.values()) {
+            result = goods.get(index).getId().toString();
         }
         return result;
     }
@@ -82,7 +93,7 @@ public class Stock<T extends Goods> {
     }
 
     public int qetQuantityMap(int index) {
-        return productNameMap.size();
+        return goodsNameMap.size();
     }
 
     public int getQuantity(int index) {
@@ -90,7 +101,9 @@ public class Stock<T extends Goods> {
     }
 
     public int getPriceMap(int index) {
-        return (int) productNameMap.get(index).getPrice();
+		int price = 0;
+
+        return price;
     }
 
     public int getPrice(int index) {
@@ -104,12 +117,12 @@ public class Stock<T extends Goods> {
     }
 
     public boolean removeMap(int index, int quantity) {
-        if (quantity <= productNameMap.size()) {
+        if (quantity <= goodsNameMap.size()) {
             for (int i = 0; i < quantity; i++) {
-                productNameMap.remove(index);
+                goodsNameMap.remove(index);
             }
-            if (productNameMap.isEmpty()) {
-                productNameMap.remove(index);
+            if (goodsNameMap.isEmpty()) {
+                goodsNameMap.remove(index);
             }
             return true;
         } else {
