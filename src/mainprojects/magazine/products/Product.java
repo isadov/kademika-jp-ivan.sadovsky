@@ -58,7 +58,7 @@ public class Product<T> extends Goods {
     public boolean equals(Object comparedProduct) {
         if (comparedProduct instanceof Product) {
             Product product = (Product) comparedProduct;
-            if (name.equals(product)) {
+            if (name != null && name.equals(product)) {
                 return true;
             }
         }

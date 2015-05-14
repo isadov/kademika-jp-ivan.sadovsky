@@ -31,4 +31,6 @@ public class Goods<T> {
 	public void setId(T id) {
 		this.id = id;
 	}
+
+
 }
