@@ -24,11 +24,10 @@ public class Date {
 		System.out.println(currentData);
 	}
 
-	public void getCurrentDate() {
+	public Object getCurrentDate() {
 		calendar = Calendar.getInstance();
 		currentData = sdf.format(calendar.getTime());
-		System.out.println(currentData);
-
+		return currentData;
 	}
 
 	public void updateCalendar(int shift) {

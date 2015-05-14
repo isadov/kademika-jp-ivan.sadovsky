@@ -2,7 +2,7 @@ package mainprojects.magazine.products;
 
 public class Goods<T> {
 	protected String name;
-	protected T price;
+	protected int price;
 	protected T id;
 
 	public Goods() {
@@ -16,11 +16,11 @@ public class Goods<T> {
 		this.name = name;
 	}
 
-	public T getPrice() {
+	public int getPrice() {
 		return price;
 	}
 
-	public void setPrice(T price) {
+	public void setPrice(int price) {
 		this.price = price;
 	}
 

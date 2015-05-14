@@ -3,6 +3,7 @@ package mainprojects.magazine.transaction;
 import mainprojects.magazine.products.TypeOfProducts;
 
 public class Transaction {
+	private int indexInGoodsList;
 	private String currentDate;
 	private String client;
 	private String elementName;
@@ -15,9 +16,10 @@ public class Transaction {
 		
 	}
 	
-	public Transaction(String currentData, String client,
-			String elementName, int price, int quantity) {
-		this.currentDate = currentData;
+	public Transaction(int indexInGoodsList, String currentDate, String client, String elementName, int price, int quantity) {
+		super();
+		this.indexInGoodsList = indexInGoodsList;
+		this.currentDate = currentDate;
 		this.client = client;
 		this.elementName = elementName;
 		this.price = price;
@@ -78,6 +80,14 @@ public class Transaction {
 
 	public void setType(TypeOfProducts type) {
 		this.type = type;
+	}
+
+	public int getIndexInGoodsList() {
+		return indexInGoodsList;
+	}
+
+	public void setIndexInGoodsList(int indexInGoodsList) {
+		this.indexInGoodsList = indexInGoodsList;
 	}
 
 	@Override

@@ -8,7 +8,7 @@ public class Product<T> extends Goods {
     public Product() {
     }
 
-    public Product(String name, TypeOfProducts type, T brand, T price, T id) {
+    public Product(String name, TypeOfProducts type, T brand, int price, T id) {
 
         this.name = name;
         this.type = type;
