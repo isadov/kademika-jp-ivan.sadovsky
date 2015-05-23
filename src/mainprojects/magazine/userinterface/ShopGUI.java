@@ -26,7 +26,7 @@ public class ShopGUI {
     private JTable jTable;
     private JPanel panelBuy;
     private JPanel panelTransactions;
-    private ShoppingCard shopCart;
+    private ShoppingCard shopCard;
     private LinkedList<Customer> customerList;
     private CustomerDataBase customerDB;
 
@@ -91,7 +91,7 @@ public class ShopGUI {
             panelBuy.add(jScrollPane, new GridBagConstraints(1, 0, 1, 1, 0, 0, GridBagConstraints.LINE_START,
                     GridBagConstraints.NONE, new Insets(0, 0, 10, 0), 0, 0));
 
-            JButton button1 = new JButton("View Shopping Card");
+            JButton button1 = new JButton("Create Transaction");
             panelBuy.add(button1, new GridBagConstraints(1, 1, 1, 1, 0, 0, GridBagConstraints.LINE_START,
                     0, new Insets(0, 0, 0, 0), 25, 0));
             button1.addActionListener(new ActionListener() {
@@ -140,13 +140,13 @@ public class ShopGUI {
 
         int numbersToBuy;
         Goods g;
-        shopCart = new ShoppingCard();
+        shopCard = new ShoppingCard();
 
         for (int i = 0; i < jTable.getRowCount(); i++) {
             numbersToBuy = Integer.parseInt(jTable.getValueAt(i, 4).toString());
             if (numbersToBuy != 0) {
                 g = listOfGoods.get(i);
-                shopCart.add(new Transaction(
+                shopCard.add(new Transaction(
                         i,              //int indexInGoodsList
                         "01.01.01",     //String currentDate
                         "customer",     //String client
@@ -172,7 +172,7 @@ public class ShopGUI {
         panelCart.add(l2, new GridBagConstraints(1, 1, 1, 1, 0, 0, GridBagConstraints.LINE_START,
                 GridBagConstraints.NONE, new Insets(0, 0, 10, 0), 0, 0));
 
-        JLabel l3 = new JLabel(Double.toString(shopCart.getSum()) + "grn");
+        JLabel l3 = new JLabel(Double.toString(shopCard.getSum()) + "grn");
         panelCart.add(l3, new GridBagConstraints(2, 1, 1, 1, 0, 0, GridBagConstraints.LINE_START,
                 GridBagConstraints.NONE, new Insets(0, 0, 10, 0), 0, 0));
 
@@ -211,8 +211,8 @@ public class ShopGUI {
                 }
 
                 Transaction transaction;
-                for (int i = 0; i < shopCart.getSize(); i++) {
-                    transaction = shopCart.getItem(i);
+                for (int i = 0; i < shopCard.getSize(); i++) {
+                    transaction = shopCard.getItem(i);
                     transaction.setClient(tf.getText());
                     transaction.setCurrentDate(dateRef.currentData);
                     register.add(transaction);
@@ -220,7 +220,7 @@ public class ShopGUI {
                     stock.removeMap(listOfGoods.get(transaction.getIndexInGoodsList()).getClass(), transaction.getElementName(),
                             transaction.getQuantity());
                 }
-                shopCart = null;
+                shopCard = null;
                 jFrame.remove(panelBuy);
                 jFrame.repaint();
                 fCart.dispose();
@@ -234,7 +234,7 @@ public class ShopGUI {
         button2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                shopCart = null;
+                shopCard = null;
                 fCart.dispose();
             }
         });
