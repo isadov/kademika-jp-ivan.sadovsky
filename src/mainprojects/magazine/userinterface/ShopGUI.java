@@ -43,7 +43,7 @@ public class ShopGUI {
 
         jFrame = new JFrame("Best Product Shop");
         JMenuBar menuBar = new JMenuBar();
-        JMenu menu = new JMenu("Actions");
+        JMenu menu = new JMenu("Menu");
 
         JMenuItem menuItem = new JMenuItem("Buy");
         menu.add(menuItem);

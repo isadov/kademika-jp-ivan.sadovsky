@@ -33,21 +33,21 @@ public class DemoShop {
 		p.setType(TypeOfProducts.FRUIT);
 		p.setPrice(3);
 		p.setId(1);
-		stock.addMoreThanOne(p, 100);
+		stock.addMoreThanOne(p, 3);
 
 		Product p1 = new Product();
 		p1.setName("Pear");
 		p1.setBrand("Leven");
 		p1.setType(TypeOfProducts.FRUIT);
 		p1.setPrice(5);
-		stock.addMoreThanOne(p1, 100);
+		stock.addMoreThanOne(p1, 2);
 
 		Product p2 = new Product();
 		p2.setName("Mandarin");
 		p2.setBrand("European");
 		p2.setType(TypeOfProducts.FRUIT);
 		p2.setPrice(2);
-		stock.addMoreThanOne(p2, 400);
+		stock.addMoreThanOne(p2, 2);
 
 		new ShopGUI(date, stock, customerDB);
 	}
