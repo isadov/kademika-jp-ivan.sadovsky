@@ -3,11 +3,11 @@ package mainprojects.magazine.transaction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ShoppingCard {
+public class BuyMenu {
 
     private List<Transaction> transactionList;
 
-    public ShoppingCard() {
+    public BuyMenu() {
         this.transactionList = new ArrayList<>();
     }
 
@@ -23,17 +23,6 @@ public class ShoppingCard {
         return null;
     }
 
-    public void removeItem() {
-        if(!transactionList.isEmpty()) {
-            transactionList.remove(transactionList.size() - 1);
-        }
-    }
-
-    public void removeAll() {
-        if(!transactionList.isEmpty()) {
-            transactionList.removeAll(transactionList);
-        }
-    }
 
     public double getSum () {
         double sum = 0;

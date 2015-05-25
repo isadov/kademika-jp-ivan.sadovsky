@@ -3,7 +3,7 @@ package mainprojects.magazine.customer;
 public class Customer {
 
 	private String name;
-	private String email;
+	private String nickname;
 	
 	public Customer() {
 
@@ -21,11 +21,7 @@ public class Customer {
 		this.name = name;
 	}
 
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
 	}
 }

@@ -14,12 +14,4 @@ public class CustomerDataBase {
         customerList.add(customer);
     }
 
-    public Customer getCustomer(int index) {
-       return customerList.get(index);
-    }
-
-    public int size() {
-        return customerList.size();
-    }
-
 }

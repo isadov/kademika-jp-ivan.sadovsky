@@ -1,101 +1,82 @@
 package mainprojects.magazine.transaction;
 
-import mainprojects.magazine.products.TypeOfProducts;
-
 public class Transaction {
-	private int indexInGoodsList;
-	private String currentDate;
-	private String client;
-	private String elementName;
-	private int price;
-	private int quantity;
-	private int id;
-	private TypeOfProducts type;
-	
-	public Transaction() {
-		
-	}
-	
-	public Transaction(int indexInGoodsList, String currentDate, String client, String elementName, int price, int quantity) {
-		super();
-		this.indexInGoodsList = indexInGoodsList;
-		this.currentDate = currentDate;
-		this.client = client;
-		this.elementName = elementName;
-		this.price = price;
-		this.quantity = quantity;
-	}
+    private int indexInGoodsList;
+    private String currentDate;
+    private String client;
+    private String elementName;
+    private int price;
+    private int quantity;
+    private int id;
 
-	public String getCurrentDate() {
-		return currentDate;
-	}
+    public Transaction() {
 
-	public void setCurrentDate(String currentData) {
-		this.currentDate = currentData;
-	}
+    }
 
-	public String getClient() {
-		return client;
-	}
+    public Transaction(int indexInGoodsList, String currentDate, String client, String elementName, int price, int quantity) {
+        super();
+        this.indexInGoodsList = indexInGoodsList;
+        this.currentDate = currentDate;
+        this.client = client;
+        this.elementName = elementName;
+        this.price = price;
+        this.quantity = quantity;
+    }
 
-	public void setClient(String client) {
-		this.client = client;
-	}
+    public String getCurrentDate() {
+        return currentDate;
+    }
 
-	public String getElementName() {
-		return elementName;
-	}
+    public void setCurrentDate(String currentData) {
+        this.currentDate = currentData;
+    }
 
-	public void setElementName(String elementName) {
-		this.elementName = elementName;
-	}
+    public String getClient() {
+        return client;
+    }
 
-	public int getPrice() {
-		return price;
-	}
+    public void setClient(String client) {
+        this.client = client;
+    }
 
-	public void setPrice(int price) {
-		this.price = price;
-	}
+    public String getElementName() {
+        return elementName;
+    }
 
-	public int getQuantity() {
-		return quantity;
-	}
+    public int getPrice() {
+        return price;
+    }
 
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
-	}
-	
-	public int getId() {
-		return id;
-	}
+    public void setPrice(int price) {
+        this.price = price;
+    }
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public int getQuantity() {
+        return quantity;
+    }
 
-	public TypeOfProducts getType() {
-		return type;
-	}
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
 
-	public void setType(TypeOfProducts type) {
-		this.type = type;
-	}
+    public int getId() {
+        return id;
+    }
 
-	public int getIndexInGoodsList() {
-		return indexInGoodsList;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public void setIndexInGoodsList(int indexInGoodsList) {
-		this.indexInGoodsList = indexInGoodsList;
-	}
+    public int getIndexInGoodsList() {
+        return indexInGoodsList;
+    }
 
-	@Override
-	public String toString() {
-		
-		return "Transaction happened !";
+    @Override
+    public String toString() {
 
-	}
-	
-	
+        return "Transaction happened !";
+
+    }
+
+
 }

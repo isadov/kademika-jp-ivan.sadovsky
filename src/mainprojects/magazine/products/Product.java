@@ -42,18 +42,6 @@ public class Product<T> extends Goods {
     }
 
 
-//	@Override
-//	public boolean equals(Object obj) {
-//		if (obj instanceof Product) {
-//			Product p = (Product) obj;
-//			if (name != null && name.equals(p.name )) { // type != null && type.equals(p.type)
-//				return true;
-//			}
-//		}
-//		return false;
-//	}
-
-
     @Override
     public boolean equals(Object comparedProduct) {
         if (comparedProduct instanceof Product) {

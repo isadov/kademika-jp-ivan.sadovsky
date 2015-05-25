@@ -6,7 +6,7 @@ import mainprojects.magazine.products.Goods;
 import mainprojects.magazine.products.Product;
 import mainprojects.magazine.service.Date;
 import mainprojects.magazine.service.Stock;
-import mainprojects.magazine.transaction.ShoppingCard;
+import mainprojects.magazine.transaction.BuyMenu;
 import mainprojects.magazine.transaction.Transaction;
 
 import javax.swing.*;
@@ -22,11 +22,11 @@ public class ShopGUI {
     private List<Transaction> register;
     private Date dateRef;
     private Stock stock;
-    private JFrame jFrame, fCart;
+    private JFrame jFrame, fCard;
     private JTable jTable;
     private JPanel panelBuy;
     private JPanel panelTransactions;
-    private ShoppingCard shopCard;
+    private BuyMenu buyMenu;
     private LinkedList<Customer> customerList;
     private CustomerDataBase customerDB;
 
@@ -70,6 +70,7 @@ public class ShopGUI {
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jFrame.setMinimumSize(new Dimension(800, 600));
         jFrame.pack();
+        jFrame.setLocationRelativeTo(null);
         jFrame.setVisible(true);
 
     }
@@ -97,7 +98,7 @@ public class ShopGUI {
             button1.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    createShoppingCartFrame(goodsList);
+                    createBuyMenuFrame(goodsList);
                 }
             });
 
@@ -136,17 +137,17 @@ public class ShopGUI {
         return new JTable(tableData, columnNames);
     }
 
-    private void createShoppingCartFrame(List<Goods> listOfGoods) {
+    private void createBuyMenuFrame(List<Goods> listOfGoods) {
 
         int numbersToBuy;
         Goods g;
-        shopCard = new ShoppingCard();
+        buyMenu = new BuyMenu();
 
         for (int i = 0; i < jTable.getRowCount(); i++) {
             numbersToBuy = Integer.parseInt(jTable.getValueAt(i, 4).toString());
             if (numbersToBuy != 0) {
                 g = listOfGoods.get(i);
-                shopCard.add(new Transaction(
+                buyMenu.add(new Transaction(
                         i,              //int indexInGoodsList
                         "01.01.01",     //String currentDate
                         "customer",     //String client
@@ -156,9 +157,9 @@ public class ShopGUI {
                 );
             }
         }
-        fCart = new JFrame("Shopping Card");
-        fCart.setMinimumSize(new Dimension(500, 300));
-        fCart.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+        fCard = new JFrame("Transaction Menu");
+        fCard.setMinimumSize(new Dimension(500, 300));
+        fCard.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 
         JPanel panelCart = new JPanel();
         panelCart.setLayout(new GridBagLayout());
@@ -172,7 +173,7 @@ public class ShopGUI {
         panelCart.add(l2, new GridBagConstraints(1, 1, 1, 1, 0, 0, GridBagConstraints.LINE_START,
                 GridBagConstraints.NONE, new Insets(0, 0, 10, 0), 0, 0));
 
-        JLabel l3 = new JLabel(Double.toString(shopCard.getSum()) + "grn");
+        JLabel l3 = new JLabel(Double.toString(buyMenu.getSum()) + "grn");
         panelCart.add(l3, new GridBagConstraints(2, 1, 1, 1, 0, 0, GridBagConstraints.LINE_START,
                 GridBagConstraints.NONE, new Insets(0, 0, 10, 0), 0, 0));
 
@@ -185,7 +186,7 @@ public class ShopGUI {
         panelCart.add(tf, new GridBagConstraints(2, 4, 1, 1, 0, 0, GridBagConstraints.LINE_START,
                 GridBagConstraints.HORIZONTAL, new Insets(0, 0, 10, 0), 0, 0));
 
-        JLabel label1 = new JLabel("Input your Email:");
+        JLabel label1 = new JLabel("Input your Nick:");
         panelCart.add(label1, new GridBagConstraints(1, 5, 1, 1, 0, 0, GridBagConstraints.LINE_START,
                 GridBagConstraints.NONE, new Insets(0, 0, 10, 0), 0, 0));
         final JTextField tf1 = new JTextField();
@@ -203,7 +204,7 @@ public class ShopGUI {
                 if (!tf.getText().isEmpty() && !tf1.getText().isEmpty()) {
                     Customer customer = new Customer();
                     customer.setName(tf.getText());
-                    customer.setEmail(tf1.getText());
+                    customer.setNickname(tf1.getText());
                     customerDB.addCustomer(customer);
                 } else {
                     JOptionPane.showMessageDialog(null, "Empty Name Or Email", "Warning", JOptionPane.WARNING_MESSAGE);
@@ -211,8 +212,8 @@ public class ShopGUI {
                 }
 
                 Transaction transaction;
-                for (int i = 0; i < shopCard.getSize(); i++) {
-                    transaction = shopCard.getItem(i);
+                for (int i = 0; i < buyMenu.getSize(); i++) {
+                    transaction = buyMenu.getItem(i);
                     transaction.setClient(tf.getText());
                     transaction.setCurrentDate(dateRef.currentData);
                     register.add(transaction);
@@ -220,10 +221,10 @@ public class ShopGUI {
                     stock.removeMap(listOfGoods.get(transaction.getIndexInGoodsList()).getClass(), transaction.getElementName(),
                             transaction.getQuantity());
                 }
-                shopCard = null;
+                buyMenu = null;
                 jFrame.remove(panelBuy);
                 jFrame.repaint();
-                fCart.dispose();
+                fCard.dispose();
             }
         });
 
@@ -234,14 +235,15 @@ public class ShopGUI {
         button2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                shopCard = null;
-                fCart.dispose();
+                buyMenu = null;
+                fCard.dispose();
             }
         });
 
-        fCart.add(panelCart);
-        fCart.pack();
-        fCart.setVisible(true);
+        fCard.add(panelCart);
+        fCard.pack();
+        fCard.setLocationRelativeTo(null);
+        fCard.setVisible(true);
     }
 
     private void displayTransactions() {

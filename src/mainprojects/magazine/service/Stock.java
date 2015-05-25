@@ -1,14 +1,12 @@
 package mainprojects.magazine.service;
 
 import mainprojects.magazine.products.Goods;
-import mainprojects.magazine.products.Product;
 
 import java.util.*;
 
 public class Stock<T extends Goods> {
 
     private Map<Class, Map<String, List<Goods>>> mapStorage;
-
 
     public Stock() {
 
@@ -25,18 +23,12 @@ public class Stock<T extends Goods> {
             mapStorage.get(aClass).put(goodsName, new LinkedList<Goods>());
             mapStorage.get(aClass).get(goodsName).add(g);
         } else {
-            if (mapStorage.containsKey(aClass)) {
                 if (!mapStorage.get(aClass).containsKey(goodsName)) {
                     mapStorage.get(aClass).put(goodsName, new LinkedList<Goods>());
                 }
                 mapStorage.get(aClass).get(goodsName).add(g);
-            } else {
-                mapStorage.put(aClass, new HashMap<String, List<Goods>>());
-                mapStorage.get(aClass).put(goodsName, new LinkedList<Goods>());
-                mapStorage.get(aClass).get(goodsName).add(g);
             }
         }
-    }
 
     public List<Goods> getListOfGoods() {
         List<Goods> list = new ArrayList<>();
@@ -50,48 +42,12 @@ public class Stock<T extends Goods> {
         return list;
     }
 
-    public int getNumberTypesOnStockMap() {
-        int num = 0;
-        for (Map.Entry<Class, Map<String, List<Goods>>> entryStorage : mapStorage.entrySet()) {
-            Map<String, List<Goods>> mapOfGoodsTypes = entryStorage.getValue();
-            num += mapOfGoodsTypes.size();
-        }
-        return num;
-    }
-
-    public String getNameMap(Class aClass, String goodsName) {
-        String result = null;
-        Goods g = mapStorage.get(aClass).get(goodsName).get(0);
-
-        if (g instanceof Product) {
-            result = ((Product) g).getName();
-        }
-        return result;
-    }
-
-    public String getAttributeMap(Class aClass, String goodsBrand) {
-        String result = null;
-        Goods g = mapStorage.get(aClass).get(goodsBrand).get(0);
-
-        if (g instanceof Product) {
-            result = ((Product) g).getBrand().toString();
-        }
-        return result;
-
-    }
 
     public int qetQuantityMap(Class aClass, String goodsName) {
         return mapStorage.get(aClass).get(goodsName).size();
     }
 
-    public String qetStringQuantityMap(Class aClass, String goodsName) {
-        return Integer.toString(mapStorage.get(aClass).get(goodsName).size());
-    }
 
-    public String getPriceMap(Class aClass, String goodsPrice) {
-        Goods g = mapStorage.get(aClass).get(goodsPrice).get(0);
-        return String.valueOf(g.getPrice());
-    }
 
     public void addMoreThanOne(T p, int quantity) {
         for (int i = 0; i < quantity; i++) {
