@@ -48,7 +48,6 @@ public class Stock<T extends Goods> {
     }
 
 
-
     public void addMoreThanOne(T p, int quantity) {
         for (int i = 0; i < quantity; i++) {
             addMap(p);

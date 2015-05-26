@@ -1,4 +1,4 @@
-package day11.bytetype;
+package day11.byte_type;
 
 public class ByteTest {
 

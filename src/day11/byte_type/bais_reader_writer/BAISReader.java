@@ -1,4 +1,4 @@
-package day11.bytetype.baisreaderwriter;
+package day11.byte_type.bais_reader_writer;
 
 import java.io.ByteArrayInputStream;
 
