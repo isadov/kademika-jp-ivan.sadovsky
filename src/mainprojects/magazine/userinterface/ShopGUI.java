@@ -19,6 +19,8 @@ import java.util.List;
 
 public class ShopGUI {
 
+//
+
     private List<Transaction> register;
     private Date dateRef;
     private Stock stock;

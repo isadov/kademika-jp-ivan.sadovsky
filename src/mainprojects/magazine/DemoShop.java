@@ -56,6 +56,8 @@ public class DemoShop {
 		p3.setPrice(3);
 		stock.addMoreThanOne(p3, 500);
 
+//
+
 		new ShopGUI(date, stock, customerDB);
 
 	}
