@@ -26,6 +26,7 @@ public class ShopGUI {
     private JTable jTable;
     private JPanel panelBuy;
     private JPanel panelTransactions;
+    private JPanel panelWelcome;
     private BuyMenu buyMenu;
     private LinkedList<Customer> customerList;
     private CustomerDataBase customerDB;
@@ -42,6 +43,11 @@ public class ShopGUI {
     private void runShop() {
 
         jFrame = new JFrame("Best Product Shop");
+        panelWelcome = new JPanel(new GridBagLayout());
+
+        JLabel labelEmpty = new JLabel("Welcome. Please Click Menu To Start");
+        panelWelcome.add(labelEmpty);
+
         JMenuBar menuBar = new JMenuBar();
         JMenu menu = new JMenu("Menu");
 
@@ -52,6 +58,7 @@ public class ShopGUI {
         menu.add(menuItem1);
 
         menuBar.add(menu);
+
         menuItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -66,6 +73,7 @@ public class ShopGUI {
             }
         });
 
+        jFrame.add(panelWelcome);
         jFrame.setJMenuBar(menuBar);
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jFrame.setMinimumSize(new Dimension(800, 600));
@@ -76,42 +84,40 @@ public class ShopGUI {
     }
 
     private void startBuyProcess() {
+        jFrame.remove(panelWelcome);
+
         if (panelTransactions != null) {
             jFrame.remove(panelTransactions);
         }
 
         panelBuy = new JPanel(new GridBagLayout());
 
-        if (stock.isEmpty()) {
-            JLabel labelEmpty = new JLabel("Shop is Empty");
-            panelBuy.add(labelEmpty);
-        } else {
-            List<Goods> goodsList = stock.getListOfGoods();
-            jTable = createGoodsTable(goodsList);
-            JScrollPane jScrollPane = new JScrollPane(jTable);
-            panelBuy.add(jScrollPane, new GridBagConstraints(1, 0, 1, 1, 0, 0, GridBagConstraints.LINE_START,
-                    GridBagConstraints.NONE, new Insets(0, 0, 10, 0), 0, 0));
+        List<Goods> goodsList = stock.getListOfGoods();
+        jTable = createGoodsTable(goodsList);
+        JScrollPane jScrollPane = new JScrollPane(jTable);
 
-            JButton button1 = new JButton("Create Transaction");
-            panelBuy.add(button1, new GridBagConstraints(1, 1, 1, 1, 0, 0, GridBagConstraints.LINE_START,
-                    0, new Insets(0, 0, 0, 0), 25, 0));
-            button1.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    createBuyMenuFrame(goodsList);
-                }
-            });
+        panelBuy.add(jScrollPane, new GridBagConstraints(1, 0, 1, 1, 0, 0, GridBagConstraints.LINE_START,
+                GridBagConstraints.NONE, new Insets(0, 0, 10, 0), 0, 0));
 
-            JButton button2 = new JButton("Exit");
-            panelBuy.add(button2, new GridBagConstraints(2, 1, 1, 1, 0, 0, GridBagConstraints.LINE_START,
-                    0, new Insets(0, 0, 0, 0), 25, 0));
-            button2.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    System.exit(0);
-                }
-            });
-        }
+        JButton button1 = new JButton("Create Transaction");
+        panelBuy.add(button1, new GridBagConstraints(1, 1, 1, 1, 0, 0, GridBagConstraints.LINE_START,
+                0, new Insets(0, 0, 0, 0), 25, 0));
+        button1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                createBuyMenuFrame(goodsList);
+            }
+        });
+
+        JButton button2 = new JButton("Exit");
+        panelBuy.add(button2, new GridBagConstraints(2, 1, 1, 1, 0, 0, GridBagConstraints.LINE_START,
+                0, new Insets(0, 0, 0, 0), 25, 0));
+        button2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
 
         jFrame.add(panelBuy);
         jFrame.pack();
@@ -140,11 +146,19 @@ public class ShopGUI {
     private void createBuyMenuFrame(List<Goods> listOfGoods) {
 
         int numbersToBuy;
+        int quantity;
         Goods g;
         buyMenu = new BuyMenu();
 
         for (int i = 0; i < jTable.getRowCount(); i++) {
             numbersToBuy = Integer.parseInt(jTable.getValueAt(i, 4).toString());
+            quantity = Integer.parseInt(jTable.getValueAt(i, 3).toString());
+
+            if (quantity < numbersToBuy) {
+                JOptionPane.showMessageDialog(null, "Not Enough Goods On Storage", "Warning", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+
             if (numbersToBuy != 0) {
                 g = listOfGoods.get(i);
                 buyMenu.add(new Transaction(
@@ -157,6 +171,8 @@ public class ShopGUI {
                 );
             }
         }
+
+
         fCard = new JFrame("Transaction Menu");
         fCard.setMinimumSize(new Dimension(500, 300));
         fCard.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
@@ -207,7 +223,7 @@ public class ShopGUI {
                     customer.setNickname(tf1.getText());
                     customerDB.addCustomer(customer);
                 } else {
-                    JOptionPane.showMessageDialog(null, "Empty Name Or Email", "Warning", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Empty Name Or Nick", "Warning", JOptionPane.WARNING_MESSAGE);
                     return;
                 }
 
@@ -248,6 +264,7 @@ public class ShopGUI {
 
     private void displayTransactions() {
         panelTransactions = new JPanel(new GridBagLayout());
+        jFrame.remove(panelWelcome);
 
         if (register.isEmpty()) {
             JLabel labelEmpty = new JLabel("No Transactions Yet");
@@ -259,11 +276,11 @@ public class ShopGUI {
             for (int i = 0; i < register.size(); i++) {
                 Transaction t = register.get(i);
                 data[i] = new Object[]{
-                        new Integer(i + 1), // "TID"
-                        register.get(i).getCurrentDate(), //Date
-                        register.get(i).getClient(), // Client
-                        register.get(i).getElementName(),  //Goods
-                        new Integer(register.get(i).getPrice()), //Price
+                        new Integer(i + 1),                        // "TID"
+                        register.get(i).getCurrentDate(),          //Date
+                        register.get(i).getClient(),               // Client
+                        register.get(i).getElementName(),          //Goods
+                        new Integer(register.get(i).getPrice()),   //Price
                         new Integer(register.get(i).getQuantity()) // Quantity
                 };
 

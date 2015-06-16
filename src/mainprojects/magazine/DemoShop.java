@@ -47,7 +47,14 @@ public class DemoShop {
 		p2.setBrand("European");
 		p2.setType(TypeOfProducts.FRUIT);
 		p2.setPrice(2);
-		stock.addMoreThanOne(p2, 2);
+		stock.addMoreThanOne(p2, 200);
+
+		Product p3 = new Product();
+		p3.setName("Milk");
+		p3.setBrand("Ukraine");
+		p3.setType(TypeOfProducts.OTHER);
+		p3.setPrice(3);
+		stock.addMoreThanOne(p3, 500);
 
 		new ShopGUI(date, stock, customerDB);
 
