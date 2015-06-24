@@ -19,7 +19,6 @@ import java.util.List;
 
 public class ShopGUI {
 
-//
 
     private List<Transaction> register;
     private Date dateRef;
@@ -156,7 +155,7 @@ public class ShopGUI {
             numbersToBuy = Integer.parseInt(jTable.getValueAt(i, 4).toString());
             quantity = Integer.parseInt(jTable.getValueAt(i, 3).toString());
 
-            if (quantity < numbersToBuy) {
+            if (quantity < numbersToBuy && numbersToBuy < 0) {
                 JOptionPane.showMessageDialog(null, "Not Enough Goods On Storage", "Warning", JOptionPane.WARNING_MESSAGE);
                 return;
             }
@@ -172,6 +171,7 @@ public class ShopGUI {
                         numbersToBuy)   //int quantity
                 );
             }
+
         }
 
 
@@ -296,6 +296,7 @@ public class ShopGUI {
         jFrame.add(panelTransactions);
         jFrame.pack();
         jFrame.repaint();
+
         return;
     }
 }
