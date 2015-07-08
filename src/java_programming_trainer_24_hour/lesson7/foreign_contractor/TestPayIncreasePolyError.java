@@ -1,9 +1,5 @@
 package java_programming_trainer_24_hour.lesson7.foreign_contractor;
 
-import java_programming_trainer_24_hour.lesson7.foreign_contractor.Contractor;
-import java_programming_trainer_24_hour.lesson7.foreign_contractor.Employee;
-import java_programming_trainer_24_hour.lesson7.foreign_contractor.Payable;
-
 public class TestPayIncreasePolyError {
 
     public static void main(String[] args) {
