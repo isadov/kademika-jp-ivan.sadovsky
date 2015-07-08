@@ -2,7 +2,9 @@ package mainprojects.ooptanks.serviceclass;
 
 import mainprojects.ooptanks.tanks.AbstractTank;
 
-public class Action {
+import java.io.Serializable;
+
+public class Action implements Serializable{
 
     private AbstractTank pointer;
     private ActionsByTank nextAct;

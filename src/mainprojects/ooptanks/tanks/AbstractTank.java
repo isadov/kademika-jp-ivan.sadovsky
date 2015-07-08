@@ -1,17 +1,12 @@
 package mainprojects.ooptanks.tanks;
 
-import java.awt.Color;
-import java.awt.Graphics;
+import mainprojects.ooptanks.fieldsobject.BFObject;
+import mainprojects.ooptanks.serviceclass.*;
+
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.Serializable;
 import java.util.HashMap;
-
-import mainprojects.ooptanks.fieldsobject.BFObject;
-import mainprojects.ooptanks.serviceclass.Action;
-import mainprojects.ooptanks.serviceclass.ActionField;
-import mainprojects.ooptanks.serviceclass.BattleField;
-import mainprojects.ooptanks.serviceclass.Direction;
-import mainprojects.ooptanks.serviceclass.Drawable;
 
 public abstract class AbstractTank extends BFObject implements Drawable, Serializable{
 	protected Direction direction;
@@ -21,10 +16,7 @@ public abstract class AbstractTank extends BFObject implements Drawable, Seriali
 	
 	public BattleField bf;
 	public Action action;
-	protected String id;
-	protected HashMap<Direction, BufferedImage> imagesOfTank;
-	private ActionField af;
-	private boolean destroyed = false;
+	protected transient HashMap<Direction, BufferedImage> imagesOfTank;
 
 	public AbstractTank() {
 	}

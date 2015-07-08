@@ -1,17 +1,17 @@
 package mainprojects.ooptanks.serviceclass;
 
-import java.awt.Image;
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import javax.imageio.ImageIO;
 
 public class LoadingImages {
 
-	private static Image bricks;
-	private static Image eagle;
-	private static Image earth;
-	private static Image rock;
-	private static Image water;
+	private static BufferedImage bricks;
+	private static BufferedImage eagle;
+	private static BufferedImage earth;
+	private static BufferedImage rock;
+	private static BufferedImage water;
 
 	public LoadingImages() {
 		try {
@@ -46,23 +46,23 @@ public class LoadingImages {
 
 	}
 
-	public static Image getBricks() {
+	public static BufferedImage getBricks() {
 		return bricks;
 	}
 
-	public static Image getEagle() {
+	public static BufferedImage getEagle() {
 		return eagle;
 	}
 
-	public static Image getEarth() {
+	public static BufferedImage getEarth() {
 		return earth;
 	}
 
-	public static Image getRock() {
+	public static BufferedImage getRock() {
 		return rock;
 	}
 
-	public static Image getWater() {
+	public static BufferedImage getWater() {
 		return water;
 	}
 

@@ -59,7 +59,7 @@ public class Bullet implements Drawable,Destroyable{
 
 	@Override
 	public boolean isDestroyed() {
-		// TODO Auto-generated method stub
+
 		return isDestroyed;
 	}
 	

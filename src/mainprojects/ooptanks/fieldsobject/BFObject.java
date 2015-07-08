@@ -1,16 +1,16 @@
 package mainprojects.ooptanks.fieldsobject;
 
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Image;
-
 import mainprojects.ooptanks.serviceclass.Drawable;
 
-public class BFObject implements Drawable {
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.Serializable;
+
+public class BFObject implements Drawable, Serializable {
 	protected int x;
 	protected int y;
 	protected Color color;
-	protected Image image;
+	protected transient BufferedImage image;
 
 	@Override
 	public void draw(Graphics g) {

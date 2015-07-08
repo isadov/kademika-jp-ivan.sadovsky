@@ -1,19 +1,18 @@
 package mainprojects.ooptanks.tanks;
 
-import java.awt.Color;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import java.util.HashMap;
-
-import javax.imageio.ImageIO;
-
 import mainprojects.ooptanks.fieldsobject.BFObject;
 import mainprojects.ooptanks.fieldsobject.Rock;
 import mainprojects.ooptanks.serviceclass.Action;
 import mainprojects.ooptanks.serviceclass.ActionsByTank;
 import mainprojects.ooptanks.serviceclass.BattleField;
 import mainprojects.ooptanks.serviceclass.Direction;
+
+import javax.imageio.ImageIO;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.util.HashMap;
 
 public class T34 extends AbstractTank {
     public T34() {
@@ -40,35 +39,30 @@ public class T34 extends AbstractTank {
             this.imagesOfTank.put(Direction.UP, ImageIO.read(new File(
                     "tanks_image/TankDeffTop.png")));
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         try {
             this.imagesOfTank.put(Direction.RIGHT, ImageIO.read(new File(
                     "tanks_image/TankDeffRight.png")));
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         try {
             this.imagesOfTank.put(Direction.DOWN, ImageIO.read(new File(
                     "tanks_image/TankDeffDown.png")));
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         try {
             this.imagesOfTank.put(Direction.LEFT, ImageIO.read(new File(
                     "tanks_image/TankDeffLeft.png")));
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }
 
     @Override
     public Action setup() {
-        // TODO Auto-generated method stub
 
         if (this.action.isActionResult()) {
             this.action.setAttemptCount(0);
@@ -80,7 +74,11 @@ public class T34 extends AbstractTank {
         } else {
             switch (this.action.getNextAct()) {
                 case FIRE:
-                    this.action.setNextAct(ActionsByTank.MOVE);
+                    if(enemyDirect()) {
+                        this.action.setNextAct(ActionsByTank.FIRE);
+                    }else{
+                        this.action.setNextAct(ActionsByTank.MOVE);
+                    }
                     break;
                 case TURN_LEFT:
                     if (enemyDirect()) {
@@ -155,7 +153,7 @@ public class T34 extends AbstractTank {
             if (tmp instanceof Rock) {
                 break;
             }
-            if (tmp instanceof Tiger) {
+            if ((tmp instanceof Tiger) || (tmp instanceof BT7)) {
                 isEnemy = true;
                 break;
             }

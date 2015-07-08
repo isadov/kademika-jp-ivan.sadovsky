@@ -1,13 +1,5 @@
 package mainprojects.ooptanks.tanks;
 
-import java.awt.Color;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import java.util.HashMap;
-
-import javax.imageio.ImageIO;
-
 import mainprojects.ooptanks.fieldsobject.BFObject;
 import mainprojects.ooptanks.fieldsobject.Brick;
 import mainprojects.ooptanks.fieldsobject.Eagle;
@@ -16,6 +8,13 @@ import mainprojects.ooptanks.serviceclass.Action;
 import mainprojects.ooptanks.serviceclass.ActionsByTank;
 import mainprojects.ooptanks.serviceclass.BattleField;
 import mainprojects.ooptanks.serviceclass.Direction;
+
+import javax.imageio.ImageIO;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.util.HashMap;
 
 public class Tiger extends AbstractTank {
 
@@ -42,28 +41,24 @@ public class Tiger extends AbstractTank {
             this.imagesOfTank.put(Direction.UP, ImageIO.read(new File(
                     "tanks_image/TankAttTop.png")));
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         try {
             this.imagesOfTank.put(Direction.RIGHT, ImageIO.read(new File(
                     "tanks_image/TankAttRight.png")));
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         try {
             this.imagesOfTank.put(Direction.DOWN, ImageIO.read(new File(
                     "tanks_image/TankAttDown.png")));
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         try {
             this.imagesOfTank.put(Direction.LEFT, ImageIO.read(new File(
                     "tanks_image/TankAttLeft.png")));
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }
